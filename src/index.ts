@@ -1,20 +1,13 @@
 import logger from "./services/utils/logger";
 import "./server";
-import { createCollection, deleteAllCollections } from "./services/weaviate";
-import { startLocalProcess } from "./services/utils/fragmentTextServer";
+import { askQuestion } from "./services/ollama";
 
 async function main() {
-  //   logger.info("🚀 Запуск основного процесса...");
-  // await deleteAllCollections()
-  // await createCollection()
-  //   logger.info(
-  //     await searchBySimilarity("Очередной дневальный по роте")
-  //   );
-  //   logger.info(
-  //     await searchByKeyword("Очередной дневальный по роте")
-  //   );
-  //   logger.info(await searchHybrid("Очередной дневальный по роте"));
-  //   logger.info("✅ Все операции успешно завершены.");
+  
+
+  // const userQuery = "Что такое постмодернизм?";
+  // const answer = await askQuestion(userQuery, []);
+  // console.log("\n\nПолный ответ:\n", answer);
 }
 
 main().catch((err) => {
