@@ -20,7 +20,6 @@ export const io = new Server(server, {
   },
 });
 
-// Функция для создания задержки
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
