@@ -15,16 +15,7 @@ interface Document {
   vectors: any;
 }
 
-/**
- * Функция askQuestion принимает:
- * @param userQuery - вопрос пользователя
- * @param documents - массив документов с источниками
- * @param socketId - id сокета, которому отправлять данные (если не передан — всем)
- *
- * Если документов нет, промпт начинает ответ с "Я не смог найти информацию в достоверных источниках, но вот что я об этом думаю:"
- * Функция формирует промпт, отправляет его в Ollama с stream: true,
- * и по мере генерации отправляет накопленный ответ клиенту через событие "partial answer".
- */
+
 export async function askQuestion(
   userQuery: string,
   documents: Document[],
@@ -68,8 +59,6 @@ ${context}
     });
 
     let fullResponse = "";
-    // При получении каждого чанка добавляем его к накопленному ответу
-    // и отправляем клиенту накопленный ответ по событию "partial answer"
     for await (const part of responseStream) {
       const content = part.message.content;
       fullResponse += content;
